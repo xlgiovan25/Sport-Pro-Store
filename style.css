@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root[data-bs-theme="light"] {
+  --bg-body: #f4f6f9;
+  --card-bg: #ffffff;
+  --card-border: #e2e8f0;
+  --text-main: #0f172a;
+  --orange-primary: #f97316;
+  --orange-hover: #ea580c;
+  --input-bg: #ffffff;
+}
+
+:root[data-bs-theme="dark"] {
+  --bg-body: #0b0c10;
+  --card-bg: #15171e;
+  --card-border: #252834;
+  --text-main: #f8fafc;
+  --orange-primary: #ff7a18;
+  --orange-hover: #f97316;
+  --input-bg: #0f1117;
+}
+
+body {
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.navbar {
+  background: #111319;
+  border-bottom: 2px solid var(--orange-primary);
+}
+
+.text-orange { color: var(--orange-primary) !important; }
+.bg-orange { background-color: var(--orange-primary) !important; color: #fff; }
+.extra-small { font-size: 0.72rem; }
+
+.btn-orange {
+  background-color: var(--orange-primary);
+  color: #ffffff;
+  font-weight: 700;
+  border: none;
+  transition: all 0.2s;
+}
+.btn-orange:hover, .btn-orange:active {
+  background-color: var(--orange-hover);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+.btn-orange:disabled {
+  background-color: #94a3b8;
+  transform: none;
+}
+
+.card-custom, .card-kpi {
+  background-color: var(--card-bg) !important;
+  border: 1px solid var(--card-border) !important;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+/* SHOPEE POSTCARD DESIGN */
+.shopee-postcard {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
+.shopee-postcard:hover {
+  transform: translateY(-4px);
+  border-color: var(--orange-primary);
+  box-shadow: 0 8px 18px rgba(249, 115, 22, 0.18);
+}
+.shopee-postcard .img-container {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: #1e293b;
+  overflow: hidden;
+  position: relative;
+}
+.shopee-postcard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.shopee-postcard:hover img {
+  transform: scale(1.06);
+}
+
+.sold-out-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+}
+
+/* SIZE PILL SELECTOR DI MODAL DETAIL */
+.size-pill {
+  border: 1.5px solid var(--card-border);
+  background: var(--input-bg);
+  color: var(--text-main);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-weight: 700;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.size-pill:hover:not(:disabled) {
+  border-color: var(--orange-primary);
+}
+.size-pill.active {
+  background-color: var(--orange-primary);
+  border-color: var(--orange-primary);
+  color: #ffffff;
+}
+.size-pill:disabled {
+  opacity: 0.45;
+  text-decoration: line-through;
+  cursor: not-allowed;
+}
+
+/* CHIP RINCIAN UKURAN & STOK TERPISAH DI TABEL ADMIN */
+.size-stock-chip {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--card-border);
+  border-radius: 6px;
+  overflow: hidden;
+  font-size: 0.72rem;
+  font-weight: 700;
+  margin-right: 5px;
+  margin-bottom: 4px;
+  background-color: var(--input-bg);
+}
+
+.size-stock-chip .chip-size {
+  padding: 2px 7px;
+  color: var(--text-main);
+  border-right: 1px solid var(--card-border);
+}
+
+.size-stock-chip .chip-qty {
+  padding: 2px 7px;
+  background-color: rgba(249, 115, 22, 0.14);
+  color: var(--orange-primary);
+}
+
+.size-stock-chip.is-empty {
+  border-color: rgba(239, 68, 68, 0.45);
+}
+
+.size-stock-chip.is-empty .chip-qty {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+.katalog-scroll {
+  max-height: 540px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.cart-scroll {
+  max-height: 320px;
+  overflow-y: auto;
+}
+.katalog-scroll::-webkit-scrollbar, .cart-scroll::-webkit-scrollbar { width: 5px; }
+.katalog-scroll::-webkit-scrollbar-thumb, .cart-scroll::-webkit-scrollbar-thumb { background: #475569; border-radius: 10px; }
+
+.badge-sub {
+  background-color: rgba(249, 115, 22, 0.15);
+  color: var(--orange-primary);
+  border: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+.form-control, .form-select {
+  background-color: var(--input-bg);
+  border-color: var(--card-border);
+  color: var(--text-main);
+}
+.form-control:focus, .form-select:focus {
+  background-color: var(--input-bg);
+  border-color: var(--orange-primary);
+  color: var(--text-main);
+  box-shadow: 0 0 0 0.2rem rgba(249, 115, 22, 0.2);
+}
+
+.nav-pills .nav-link {
+  color: var(--text-main);
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 9px 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  margin-right: 8px;
+}
+.nav-pills .nav-link.active {
+  background-color: var(--orange-primary);
+  color: #ffffff;
+  border-color: var(--orange-primary);
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+}
+
+@media (max-width: 768px) {
+  .katalog-scroll { max-height: none; overflow-y: visible; }
+}
+
+@media print {
+  body * { visibility: hidden; }
+  #areaStruk, #areaStruk *, #areaLaporanCetak, #areaLaporanCetak * { visibility: visible; color: #000 !important; }
+  #areaStruk { position: absolute; left: 0; top: 0; width: 100%; background: #fff !important; }
+}
